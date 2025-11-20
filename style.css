@@ -304,13 +304,10 @@ body {
     border-top: 2px solid var(--border-light);
 }
 
-/* Job Details */
+/* Job Details - LOCATION NOW BLUE */
 .job-location {
-    background: linear-gradient(135deg, var(--gradient-3), var(--gradient-4));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-size: 0.9rem;
+    color: #2563eb;
+    font-size: 0.95rem;
     font-weight: 600;
     margin-bottom: 12px;
     display: inline-block;
