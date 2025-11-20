@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shubham Prakash Mishra - QA Automation & Systems Engineer Portfolio">
+    <meta name="keywords" content="QA Automation, Systems Engineer, MBSE, Agile, Python, Testing">
+    <meta name="author" content="Shubham Prakash Mishra">
+    <title>Shubham Prakash Mishra | Systems Engineer Portfolio</title>
+
+    <!-- React & ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <!-- Main React Application -->
+    <script type="text/babel" data-presets="react">
+        const { useState } = React;
+
+        // --- Data Source ---
+        const profileData = {
+            profile: {
+                name: "Shubham Prakash Mishra",
+                role: "QA Automation & Systems Engineer",
+                location: "Naples, Italy",
+                email: "shubham24prakash@gmail.com",
+                phone: "(+39) 3444845951",
+                linkedin: "https://www.linkedin.com/in/shubhamprakashmishra",
+                cvLink: "./resume.html"  // Update this to your hosted CV URL
+            },
+            summary: "Passionate QA Automation and Systems Engineering professional with a good experience across automotive, software testing, and model-based systems development. Currently pursuing a research on exploring Agile MBSE and system agility for mechatronic development of Robot Prototype and nanosatellite prototypes. Skilled in Python, MATLAB/Simulink, SQL, and Agile frameworks. Committed to creating adaptive, high-reliability systems that connect System engineering with innovation.",
+            skills: [
+                {
+                    category: "Languages & Scripting",
+                    items: ["Python", "SQL", "MATLAB/Simulink"]
+                },
+                {
+                    category: "Testing & Automation",
+                    items: ["Selenium", "Postman", "API Testing", "Regression Testing", "Performance Testing"]
+                },
+                {
+                    category: "Methodologies",
+                    items: ["Agile", "Scrum++", "MBSE (Model-Based Systems Engineering)", "REMAC Framework"]
+                },
+                {
+                    category: "Tools",
+                    items: ["JIRA", "Git", "Jenkins", "Microsoft Test Frameworks"]
+                }
+            ],
+            experience: [
+                {
+                    role: "Automation System Engineering Intern",
+                    company: "ISAE Supmeca",
+                    period: "September 2025 – Present",
+                    location: "Paris, France",
+                    highlights: [
+                        "Collaborating within a 12-member Working Group on Agility for Mechatronics, developing and validating agile systems engineering approaches for Industry 4.0 applications.",
+                        "Applying REMAC Framework and Scrum++ methodologies to improve requirement management and system adaptability for mechatronic systems.",
+                        "Supporting the automatized mobile robot prototype project and contributing to nanosatellite modeling, bridging MBSE and Agile research for advanced autonomous systems."
+                    ]
+                },
+                {
+                    role: "QA Automation Engineer",
+                    company: "Coforge LTD.",
+                    period: "June 2022 – October 2023",
+                    location: "Remote",
+                    highlights: [
+                        "Reduced validation time by 80% through strategic implementation of automated regression and sanity testing frameworks.",
+                        "Integrated test automation with Agile sprint cycles, significantly improving delivery speed and product reliability across multiple automotive software modules.",
+                        "Led performance testing and database validation initiatives for embedded vehicle systems, ensuring compliance with automotive safety standards.",
+                        "Developed data-driven automated test suites using Microsoft frameworks, enhancing web service integration in next-generation automotive systems."
+                    ]
+                },
+                {
+                    role: "Senior Quality Engineer",
+                    company: "Hyyperlink A2 Infotech",
+                    period: "August 2021 – May 2022",
+                    location: "India",
+                    highlights: [
+                        "Designed and implemented comprehensive automated and manual test cases across multiple Agile development platforms.",
+                        "Managed end-to-end test planning, execution tracking, and defect lifecycle management for enterprise software solutions.",
+                        "Collaborated with cross-functional teams to ensure quality standards aligned with Industry 4.0 best practices."
+                    ]
+                },
+                {
+                    role: "Software Quality Engineer",
+                    company: "Vidclub Entertainment",
+                    period: "October 2020 – June 2021",
+                    location: "India",
+                    highlights: [
+                        "Executed comprehensive manual test cases and performed API validation testing using Postman for streaming platform services.",
+                        "Supported full SDLC/STLC documentation and facilitated cross-team coordination for quality assurance initiatives.",
+                        "Created detailed test plans, scripts, and use cases to support continuous quality improvement objectives."
+                    ]
+                }
+            ],
+            education: [
+                {
+                    degree: "Master of Engineering",
+                    field: "Autonomous Vehicle Engineering",
+                    school: "University of Naples Federico II (UNINA)",
+                    location: "Naples, Italy",
+                    year: "2023 - Present"
+                },
+                {
+                    degree: "Bachelor of Technology",
+                    field: "Mechanical Engineering",
+                    school: "Rajasthan Technical University (RTU)",
+                    location: "Rajasthan, India",
+                    year: "2017 - 2020"
+                }
+            ]
+        };
+
+        // --- Components ---
+
+        const Header = ({ profile }) => (
+            <header className="header">
+                <div className="header-content">
+                    <div className="name-section">
+                        <h1 className="name">{profile.name}</h1>
+                        <p className="role">{profile.role}</p>
+                    </div>
+                    <div className="contact-section">
+                        <div className="contact-item">
+                            <i className="fa-solid fa-envelope"></i>
+                            <a href={`mailto:${profile.email}`}>{profile.email}</a>
+                        </div>
+                        <div className="contact-item">
+                            <i className="fa-solid fa-phone"></i>
+                            <span>{profile.phone}</span>
+                        </div>
+                        <div className="contact-item">
+                            <i className="fa-solid fa-location-dot"></i>
+                            <span>{profile.location}</span>
+                        </div>
+                        <div className="contact-item">
+                            <i className="fa-brands fa-linkedin"></i>
+                            <a href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+                        </div>
+                        <div className="contact-item resume-link-item">
+                            <a href={profile.cvLink} className="view-resume-btn" target="_blank">
+                                <i className="fa-solid fa-file-pdf"></i>
+                                <span>View Full Resume</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        );
+
+        const AccordionItem = ({ title, subtitle, children, isOpen, onClick }) => {
+            return (
+                <div className={`accordion-item ${isOpen ? 'active' : ''}`}>
+                    <div className="accordion-header" onClick={onClick}>
+                        <div className="accordion-title-group">
+                            <span className="acc-title">{title}</span>
+                            {subtitle && <span className="acc-subtitle">{subtitle}</span>}
+                        </div>
+                        <i className="fa-solid fa-chevron-down acc-icon"></i>
+                    </div>
+                    <div className="accordion-body">
+                        <div className="accordion-content">
+                            {children}
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const Dashboard = () => {
+            const [openExpIndex, setOpenExpIndex] = useState(0);
+            const [openSkillIndex, setOpenSkillIndex] = useState(null);
+
+            const toggleExp = (index) => {
+                setOpenExpIndex(openExpIndex === index ? null : index);
+            };
+
+            const toggleSkill = (index) => {
+                setOpenSkillIndex(openSkillIndex === index ? null : index);
+            };
+
+            return (
+                <div className="container">
+                    <Header profile={profileData.profile} />
+
+                    <main className="main-content">
+                        {/* Professional Summary */}
+                        <section className="section">
+                            <h2 className="section-title">
+                                <i className="fa-solid fa-user-circle"></i>
+                                Professional Summary
+                            </h2>
+                            <div className="section-content">
+                                <p className="summary-text">{profileData.summary}</p>
+                            </div>
+                        </section>
+
+                        {/* Industrial Experience */}
+                        <section className="section">
+                            <h2 className="section-title">
+                                <i className="fa-solid fa-briefcase"></i>
+                                Industrial Experience
+                            </h2>
+                            <div className="section-content">
+                                {profileData.experience.map((job, index) => (
+                                    <AccordionItem
+                                        key={index}
+                                        title={job.role}
+                                        subtitle={`${job.company} | ${job.period}`}
+                                        isOpen={openExpIndex === index}
+                                        onClick={() => toggleExp(index)}
+                                    >
+                                        <div className="job-location">{job.location}</div>
+                                        <ul className="highlights-list">
+                                            {job.highlights.map((highlight, i) => (
+                                                <li key={i}>{highlight}</li>
+                                            ))}
+                                        </ul>
+                                    </AccordionItem>
+                                ))}
+                            </div>
+                        </section>
+
+                        {/* Skills & Knowledge Base */}
+                        <section className="section">
+                            <h2 className="section-title">
+                                <i className="fa-solid fa-lightbulb"></i>
+                                Skills & Knowledge Base
+                            </h2>
+                            <div className="section-content">
+                                {profileData.skills.map((skill, index) => (
+                                    <AccordionItem
+                                        key={index}
+                                        title={skill.category}
+                                        isOpen={openSkillIndex === index}
+                                        onClick={() => toggleSkill(index)}
+                                    >
+                                        <div className="skills-tags">
+                                            {skill.items.map((item, i) => (
+                                                <span key={i} className="skill-tag">{item}</span>
+                                            ))}
+                                        </div>
+                                    </AccordionItem>
+                                ))}
+                            </div>
+                        </section>
+
+                        {/* Education & Certifications */}
+                        <section className="section">
+                            <h2 className="section-title">
+                                <i className="fa-solid fa-graduation-cap"></i>
+                                Education & Certifications
+                            </h2>
+                            <div className="section-content">
+                                {profileData.education.map((edu, index) => (
+                                    <div key={index} className="education-item">
+                                        <div className="edu-degree">{edu.degree}</div>
+                                        <div className="edu-field">{edu.field}</div>
+                                        <div className="edu-school">{edu.school}</div>
+                                        <div className="edu-meta">
+                                            <span>{edu.location}</span>
+                                            <span className="separator">•</span>
+                                            <span>{edu.year}</span>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+                    </main>
+
+                    <footer className="footer">
+                        <p>© 2025 Shubham Prakash Mishra. All rights reserved.</p>
+                    </footer>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<Dashboard />);
+    </script>
+</body>
+
+</html>
